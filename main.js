@@ -4,6 +4,10 @@ const unitPriceGas = 120;
 const unitPriceEl = 40;
 const unitPriceWaterAndCan = 1200;
 
+const marchElStatus = 986;
+const marchGasStatus = 1127;
+const marchWaterStatus = 208;
+
 const displayGasPrice = $('#priceGas');
 const displayElPrice = $('#priceEl');
 const displayWaterCanPrice = $('#priceWaterCan');
@@ -31,6 +35,17 @@ $(function () {
    displayElPrice.text(unitPriceEl);
    displayGasPrice.text(unitPriceGas);
    displayWaterCanPrice.text(unitPriceWaterAndCan);
+
+   inputMarchElState.val(marchElStatus);
+   inputMarchElState.attr('disabled', true);
+
+   inputMarchGasState.val(marchGasStatus);
+   inputMarchGasState.attr('disabled', true);
+
+   inputMarchWaterCanState.val(marchWaterStatus);
+   inputMarchWaterCanState.attr('disabled', true);
+
+
 });
 
 // ######################## Event Listeners ########################
@@ -51,9 +66,6 @@ resetButton.click(function () {
    inputActualElState.val('');
    inputActualGasState.val('');
    inputActualWaterCanState.val('');
-   inputMarchElState.val('');
-   inputMarchGasState.val('');
-   inputMarchWaterCanState.val('');
 });
 
 // ######################## Functions ########################
