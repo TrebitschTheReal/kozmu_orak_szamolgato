@@ -26,7 +26,6 @@ const inputMarchWaterCanState = $('#marchWaterCanState');
 const elResultModal = $('#elResult');
 const gasResultModal = $('#gasResult');
 const waterCanResultModal = $('#waterCanresult');
-const upcResultModal = $('#upcResult');
 const sumResultModal = $('#sum');
 
 // ######################## Onready ########################
