@@ -4,9 +4,11 @@ const unitPriceGas = 120;
 const unitPriceEl = 40;
 const unitPriceWaterAndCan = 1200;
 
-const marchElStatus = 986;
+const marchElStatus = 1119;
 const marchGasStatus = 1127;
 const marchWaterStatus = 208;
+
+const upcHalfMonth = 2964;
 
 const displayGasPrice = $('#priceGas');
 const displayElPrice = $('#priceEl');
@@ -26,6 +28,7 @@ const inputMarchWaterCanState = $('#marchWaterCanState');
 const elResultModal = $('#elResult');
 const gasResultModal = $('#gasResult');
 const waterCanResultModal = $('#waterCanresult');
+const upcResultModal = $('#upcResult');
 const sumResultModal = $('#sum');
 
 // ######################## Onready ########################
@@ -54,11 +57,12 @@ calculateButton.click(function () {
    let elResult = (inputActualElState.val() - inputMarchElState.val()) * unitPriceEl;
    let gasResult = (inputActualGasState.val() - inputMarchGasState.val()) * unitPriceGas;
    let waterCanResult = (inputActualWaterCanState.val() - inputMarchWaterCanState.val()) * unitPriceWaterAndCan;
-   let sum = elResult + gasResult + waterCanResult;
+   let sum = elResult + gasResult + waterCanResult + upcHalfMonth;
 
    elResultModal.text('Elmű: ' + elResult + ' Ft');
    gasResultModal.text('Gáz: ' + gasResult + ' Ft');
    waterCanResultModal.text('Víz + csatorna: ' + waterCanResult + ' Ft');
+   upcResultModal.text('Upc fél hónap: ' + upcHalfMonth + ' Ft');
    sumResultModal.text('Összesen: ' + sum + ' Ft')
 });
 
