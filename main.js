@@ -1,9 +1,10 @@
 // ######################## Defining consts ########################
 
-const unitPriceGas = 120;
+const unitPriceGas = 102;
 const unitPriceEl = 40;
-const unitPriceWaterAndCan = 1200;
-const dumpFor12Days = 250;
+const unitPriceWater = 219;
+const unitPriceCan = 381;
+const dumpFor12Days = Math.round((2996/30)*12);
 
 const marchElStatus = 986;
 const marchGasStatus = 1127;
@@ -11,7 +12,8 @@ const marchWaterStatus = 197;
 
 const displayGasPrice = $('#priceGas');
 const displayElPrice = $('#priceEl');
-const displayWaterCanPrice = $('#priceWaterCan');
+const displayWaterPrice = $('#priceWater');
+const displayCanPrice = $('#priceCan');
 const displayDumpPrice = $('#priceDump');
 
 const calculateButton = $('#btnCalculate');
@@ -37,7 +39,8 @@ const sumResultModal = $('#sum');
 $(function () {
    displayElPrice.text(unitPriceEl);
    displayGasPrice.text(unitPriceGas);
-   displayWaterCanPrice.text(unitPriceWaterAndCan);
+   displayCanPrice.text(unitPriceCan);
+   displayWaterPrice.text(unitPriceWater);
    displayDumpPrice.text(dumpFor12Days);
 
    inputMarchElState.val(marchElStatus);
@@ -56,9 +59,9 @@ $(function () {
 
 calculateButton.click(function () {
    let elResult = (inputActualElState.val() - inputMarchElState.val()) * unitPriceEl;
-   let gasResult = (inputActualGasState.val() - inputMarchGasState.val()) * unitPriceGas;
-   let waterCanResult = (inputActualWaterCanState.val() - inputMarchWaterCanState.val()) * unitPriceWaterAndCan;
-   let dumpResult = 250;
+   let gasResult = ((inputActualGasState.val() - inputMarchGasState.val()) * unitPriceGas) + Math.round(((973/30)*12));
+   let waterCanResult = (inputActualWaterCanState.val() - inputMarchWaterCanState.val()) * (unitPriceCan + unitPriceWater);
+   let dumpResult = dumpFor12Days;
    let sum = elResult + gasResult + dumpResult + waterCanResult;
 
    elResultModal.text('Elmű: ' + elResult + ' Ft');
